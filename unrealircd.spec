@@ -13,16 +13,7 @@ Group:		Applications/Communications
 License:	GPLv2
 URL:		http://www.unrealircd.com/
 Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
-Source1:	%{name}.ircd.motd
-Source2:	%{name}.ircd.rules
-Source3:	%{name}.oper.motd
-Source4:	%{name}.bot.motd
-Source5:	%{name}.util.script
-Source6:	%{name}.README
-Source7:	%{name}.init
 Source8:	%{name}.service
-Source9:	%{name}.tune
-Source10:	%{name}.README.forking
 Source11:	%{name}.logrotate
 
 BuildRequires:	openssl-devel
@@ -59,10 +50,6 @@ to install the -devel packages of those as well.
 
 %prep
 %setup -q
-
-# Extra documentation.
-cp %{SOURCE6} %{_builddir}/%{name}-%{version}/README
-cp %{SOURCE10} %{_builddir}/%{name}-%{version}/README.forking
 
 %build
 %configure \
@@ -246,12 +233,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %dir %{_localstatedir}/log/%{name}
 %dir %{_localstatedir}/cache/%{name}
 %dir %{_sharedstatedir}/%{name}
-%{_sharedstatedir}/%{name}/ircd.tune
-%{_libexecdir}/%{name}/ircdutil
 
-# OS Specific
 %{_unitdir}/unrealircd.service
-%doc README.forking
 
 %files devel
 %defattr (0644,root,root,0755)
