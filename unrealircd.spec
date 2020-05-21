@@ -35,15 +35,11 @@ Requires:	tre
 Requires:	pcre2
 Requires:	c-ares
 
-%if 0%{?fedora} || 0%{?rhel} >= 7
 BuildRequires:	systemd
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
 Requires:	systemd
-%else
-Requires:	initscripts
-%endif
 
 %description
 UnrealIRCd is an advanced IRC server that provides features for just
@@ -190,15 +186,9 @@ rm -rf ${RPM_BUILD_ROOT}
 	${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/unrealircd
 
 # OS Specific
-%if 0%{?fedora} || 0%{?rhel} >= 7
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_unitdir}
 %{__install} -m 0644 %{SOURCE8} \
 	${RPM_BUILD_ROOT}%{_unitdir}/unrealircd.service
-%else
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_initddir}
-%{__install} -m 0755 %{SOURCE7} ${RPM_BUILD_ROOT}%{_initddir}/unrealircd
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_localstatedir}/run/%{name}
-%endif
 
 # development headers
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_includedir}/%{name}
@@ -215,30 +205,13 @@ rm -rf ${RPM_BUILD_ROOT}
 	-c 'Unreal IRC Server' unrealircd 2>/dev/null || :
 
 %preun
-%if 0%{?fedora} || 0%{?rhel} >= 7
 %systemd_preun %{name}.service
-%else
-if [ $1 = 0 ]; then
-	[ -f /var/lock/subsys/%{name} ] && /sbin/service %{name} stop
-	[ -f %{_initddir}/%{name} ] && chkconfig --del %{name}
-fi
-%endif
 
 %post
-%if 0%{?fedora} || 0%{?rhel} >= 7
 %systemd_post %{name}.service
-%else
-/sbin/chkconfig --add %{name}
-%endif
 
 %postun
-%if 0%{?fedora} || 0%{?rhel} >= 7
 %systemd_postun_with_restart %{name}.service
-%else
-if [ "$1" -ge "1" ]; then
-	[ -f /var/lock/subsys/%{name} ] && /sbin/service %{name} restart >/dev/null 2>&1
-fi
-%endif
 
 %files
 %defattr(-, unrealircd, unrealircd, -)
@@ -277,13 +250,8 @@ fi
 %{_libexecdir}/%{name}/ircdutil
 
 # OS Specific
-%if 0%{?fedora} || 0%{?rhel} >= 7
 %{_unitdir}/unrealircd.service
 %doc README.forking
-%else
-%{_initddir}/unrealircd
-%{_localstatedir}/run/%{name}
-%endif
 
 %files devel
 %defattr (0644,root,root,0755)
