@@ -67,10 +67,8 @@ to install the -devel packages of those as well.
 
 %build
 %configure \
-	--with-showlistmodes \
 	--with-bindir=%{_bindir} \
 	--with-datadir=%{_sharedstatedir}/%{name} \
-	--with-pidfile=%{_localstatedir}/run/%{name}/ircd.pid \
 	--with-confdir=%{_sysconfdir}/%{name} \
 	--with-modulesdir=%{_libdir}/%{name} \
 	--with-logdir=%{_localstatedir}/log/%{name} \
@@ -79,14 +77,12 @@ to install the -devel packages of those as well.
 	--with-tmpdir=%{_tmppath}/%{name} \
 	--with-scriptdir=%{_libexecdir}/%{name} \
 	--with-nick-history=2000 \
-	--with-sendq=3000000 \
 	--with-permissions=0644 \
-	--with-fd-setsize=1024 \
-	--with-system-tre \
 	--with-system-pcre2 \
+	--with-system-argon2 \
 	--with-system-cares \
-	--with-shunnotices \
-	--with-topicisnuhost \
+	--without-pidfile \
+	--without-privatelibdir \
 	--enable-dynamic-linking \
 	--enable-ssl=%{_prefix}
 
