@@ -16,21 +16,35 @@ Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
 Source8:	%{name}.service
 Source11:	%{name}.logrotate
 
-BuildRequires:	openssl-devel
-BuildRequires:	tre-devel
-BuildRequires:	zlib-devel
-BuildRequires:	pcre2-devel
-BuildRequires:	c-ares-devel
-Requires:	openssl
-Requires:	tre
-Requires:	pcre2
-Requires:	c-ares
+BuildRequires: coreutils
+BuildRequires: gzip
+BuildRequires: pkgconf-pkg-config
+BuildRequires: gcc
+BuildRequires: make
+BuildRequires: curl
+BuildRequires: openssl
+BuildRequires: pcre2
+BuildRequires: c-ares
+BuildRequires: argon2
 
-BuildRequires:	systemd
-Requires(post): systemd
-Requires(preun): systemd
+BuildRequires: openssl-devel
+BuildRequires: pcre2-devel
+BuildRequires: c-ares-devel
+
+BuildRequires: epel-release
+BuildRequires: libargon2-devel
+
+Requires: openssl
+Requires: pcre2
+Requires: c-ares
+Requires: argon2
+
+BuildRequires: systemd
+
+Requires(post):   systemd
+Requires(preun):  systemd
 Requires(postun): systemd
-Requires:	systemd
+Requires:         systemd
 
 %description
 UnrealIRCd is an advanced IRC server that provides features for just
