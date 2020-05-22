@@ -98,6 +98,7 @@ make %{?_smp_mflags}
 %install
 rm -rf ${buildroot}
 
+# Directories
 install -d -m 0755 ${buildroot}%{_bindir}
 
 install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}
@@ -121,6 +122,7 @@ install -d -m 0700 ${buildroot}%{_sharedstatedir}/%{name}
 install -d -m 0700 ${buildroot}%{_localstatedir}/log/%{name}
 install -d -m 0700 ${buildroot}%{_localstatedir}/cache/%{name}
 
+# Files
 install -m 0755 src/ircd ${buildroot}%{_bindir}/unrealircd
 
 install -m 0644 doc/conf/*.conf ${buildroot}%{_sysconfdir}/%{name}
@@ -136,12 +138,14 @@ install -m 0755 src/modules/chanmodes/*.so ${buildroot}%{_libdir}/%{name}/chanmo
 install -m 0755 src/modules/snomasks/*.so ${buildroot}%{_libdir}/%{name}/snomasks
 install -m 0755 src/modules/extbans/*.so ${buildroot}%{_libdir}/%{name}/extbans
 
+# Package specific
 install -d -m 0755 ${buildroot}%{_sysconfdir}/logrotate.d 
 install -m 0644 %{SOURCE4} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
 
 install -d -m 0755 ${buildroot}%{_unitdir}
 install -m 0644 %{SOURCE3} ${buildroot}%{_unitdir}/unrealircd.service
 
+# Development headers
 install -d -m 0755 ${buildroot}%{_includedir}/%{name}
 install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
 
