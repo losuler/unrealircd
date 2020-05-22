@@ -89,60 +89,60 @@ to install the -devel packages of those as well.
 make %{?_smp_mflags}
 
 %install
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf ${buildroot}
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_bindir}
+install -d -m 0755 ${buildroot}%{_bindir}
 
-%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
-%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
-%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
-%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
+install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}
+install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/aliases
+install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/help
+install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/examples
+install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/ssl
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_docdir}/%{name}-%{version}
+install -d -m 0755 ${buildroot}%{_docdir}/%{name}-%{version}
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/third
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}/usermodes
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}/chanmodes
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}/snomasks
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}/extbans
+install -d -m 0755 ${buildroot}%{_libdir}/%{name}/third
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libexecdir}/%{name}
+install -d -m 0755 ${buildroot}%{_libexecdir}/%{name}
 
-%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_sharedstatedir}/%{name}
-%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_localstatedir}/log/%{name}
-%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_localstatedir}/cache/%{name}
+install -d -m 0700 ${buildroot}%{_sharedstatedir}/%{name}
+install -d -m 0700 ${buildroot}%{_localstatedir}/log/%{name}
+install -d -m 0700 ${buildroot}%{_localstatedir}/cache/%{name}
 
-%{__install} -m 0755 src/ircd ${RPM_BUILD_ROOT}%{_bindir}/unrealircd
+install -m 0755 src/ircd ${buildroot}%{_bindir}/unrealircd
 
-%{__install} -m 0644 doc/conf/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-%{__install} -m 0644 doc/conf/aliases/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
-%{__install} -m 0644 doc/conf/help/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
-%{__install} -m 0600 doc/conf/examples/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
-%{__install} -m 0644 doc/conf/ssl/curl-ca-bundle.crt ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
+install -m 0644 doc/conf/*.conf ${buildroot}%{_sysconfdir}/%{name}
+install -m 0644 doc/conf/aliases/*.conf ${buildroot}%{_sysconfdir}/%{name}/aliases
+install -m 0644 doc/conf/help/*.conf ${buildroot}%{_sysconfdir}/%{name}/help
+install -m 0600 doc/conf/examples/*.conf ${buildroot}%{_sysconfdir}/%{name}/examples
+install -m 0644 doc/conf/ssl/curl-ca-bundle.crt ${buildroot}%{_sysconfdir}/%{name}/ssl
 
-%{__install} -m 0755 src/modules/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}
-%{__install} -m 0755 src/modules/usermodes/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
-%{__install} -m 0755 src/modules/chanmodes/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
-%{__install} -m 0755 src/modules/snomasks/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
-%{__install} -m 0755 src/modules/extbans/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
+install -m 0755 src/modules/*.so ${buildroot}%{_libdir}/%{name}
+install -m 0755 src/modules/usermodes/*.so ${buildroot}%{_libdir}/%{name}/usermodes
+install -m 0755 src/modules/chanmodes/*.so ${buildroot}%{_libdir}/%{name}/chanmodes
+install -m 0755 src/modules/snomasks/*.so ${buildroot}%{_libdir}/%{name}/snomasks
+install -m 0755 src/modules/extbans/*.so ${buildroot}%{_libdir}/%{name}/extbans
 
-%{__install} -m 0644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.motd
-%{__install} -m 0644 %{SOURCE2} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.rules
-%{__install} -m 0644 %{SOURCE3} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/oper.motd
-%{__install} -m 0644 %{SOURCE4} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/bot.motd
-%{__install} -m 0770 %{SOURCE5} ${RPM_BUILD_ROOT}%{_libexecdir}/%{name}/ircdutil
-%{__install} -m 0600 %{SOURCE9} ${RPM_BUILD_ROOT}%{_sharedstatedir}/unrealircd/ircd.tune
+install -m 0644 %{SOURCE1} ${buildroot}%{_sysconfdir}/%{name}/ircd.motd
+install -m 0644 %{SOURCE2} ${buildroot}%{_sysconfdir}/%{name}/ircd.rules
+install -m 0644 %{SOURCE3} ${buildroot}%{_sysconfdir}/%{name}/oper.motd
+install -m 0644 %{SOURCE4} ${buildroot}%{_sysconfdir}/%{name}/bot.motd
+install -m 0770 %{SOURCE5} ${buildroot}%{_libexecdir}/%{name}/ircdutil
+install -m 0600 %{SOURCE9} ${buildroot}%{_sharedstatedir}/unrealircd/ircd.tune
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d 
-%{__install} -m 0644 %{SOURCE11} ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/unrealircd
+install -d -m 0755 ${buildroot}%{_sysconfdir}/logrotate.d 
+install -m 0644 %{SOURCE11} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_unitdir}
-%{__install} -m 0644 %{SOURCE8} ${RPM_BUILD_ROOT}%{_unitdir}/unrealircd.service
+install -d -m 0755 ${buildroot}%{_unitdir}
+install -m 0644 %{SOURCE8} ${buildroot}%{_unitdir}/unrealircd.service
 
-%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_includedir}/%{name}
-%{__install} -m 0755 include/*.h ${RPM_BUILD_ROOT}%{_includedir}/%{name}
+install -d -m 0755 ${buildroot}%{_includedir}/%{name}
+install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
 
 %pre
 %{_sbindir}/groupadd -r unrealircd 2>/dev/null || :
