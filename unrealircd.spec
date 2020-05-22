@@ -176,8 +176,6 @@ install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
 %dir %{_sysconfdir}/%{name}/ssl
 %dir %{_sysconfdir}/%{name}/aliases
 %config(noreplace) %{_sysconfdir}/%{name}/*.conf
-%config(noreplace) %{_sysconfdir}/%{name}/*.motd
-%config(noreplace) %{_sysconfdir}/%{name}/*.rules
 %config(noreplace) %{_sysconfdir}/%{name}/help/*.conf
 %{_sysconfdir}/%{name}/examples/*.conf
 %{_sysconfdir}/%{name}/ssl/curl-ca-bundle.crt
