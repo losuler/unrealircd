@@ -148,7 +148,7 @@ install -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/unrealircd.service
 
 # Development headers
 install -d -m 0755 %{buildroot}%{_includedir}/%{name}
-install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
+install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 
 %pre
 %{_sbindir}/groupadd -r unrealircd 2>/dev/null || :
