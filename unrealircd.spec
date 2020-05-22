@@ -128,13 +128,6 @@ install -m 0755 src/modules/chanmodes/*.so ${buildroot}%{_libdir}/%{name}/chanmo
 install -m 0755 src/modules/snomasks/*.so ${buildroot}%{_libdir}/%{name}/snomasks
 install -m 0755 src/modules/extbans/*.so ${buildroot}%{_libdir}/%{name}/extbans
 
-install -m 0644 %{SOURCE1} ${buildroot}%{_sysconfdir}/%{name}/ircd.motd
-install -m 0644 %{SOURCE2} ${buildroot}%{_sysconfdir}/%{name}/ircd.rules
-install -m 0644 %{SOURCE3} ${buildroot}%{_sysconfdir}/%{name}/oper.motd
-install -m 0644 %{SOURCE4} ${buildroot}%{_sysconfdir}/%{name}/bot.motd
-install -m 0770 %{SOURCE5} ${buildroot}%{_libexecdir}/%{name}/ircdutil
-install -m 0600 %{SOURCE9} ${buildroot}%{_sharedstatedir}/unrealircd/ircd.tune
-
 install -d -m 0755 ${buildroot}%{_sysconfdir}/logrotate.d 
 install -m 0644 %{SOURCE11} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
 
