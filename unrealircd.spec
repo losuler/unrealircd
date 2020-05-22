@@ -95,58 +95,58 @@ to install the -devel packages of those as well.
 make %{?_smp_mflags}
 
 %install
-rm -rf ${buildroot}
+rm -rf %{buildroot}
 
 # Directories
-install -d -m 0755 ${buildroot}%{_bindir}
+install -d -m 0755 %{buildroot}%{_bindir}
 
-install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}
-install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/aliases
-install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/help
-install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/examples
-install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/ssl
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/aliases
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/help
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/examples
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/ssl
 
-install -d -m 0755 ${buildroot}%{_docdir}/%{name}-%{version}
+install -d -m 0755 %{buildroot}%{_docdir}/%{name}-%{version}
 
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}/usermodes
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}/chanmodes
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}/snomasks
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}/extbans
-install -d -m 0755 ${buildroot}%{_libdir}/%{name}/third
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}/usermodes
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}/chanmodes
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}/snomasks
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}/extbans
+install -d -m 0755 %{buildroot}%{_libdir}/%{name}/third
 
-install -d -m 0755 ${buildroot}%{_libexecdir}/%{name}
+install -d -m 0755 %{buildroot}%{_libexecdir}/%{name}
 
-install -d -m 0700 ${buildroot}%{_sharedstatedir}/%{name}
-install -d -m 0700 ${buildroot}%{_localstatedir}/log/%{name}
-install -d -m 0700 ${buildroot}%{_localstatedir}/cache/%{name}
+install -d -m 0700 %{buildroot}%{_sharedstatedir}/%{name}
+install -d -m 0700 %{buildroot}%{_localstatedir}/log/%{name}
+install -d -m 0700 %{buildroot}%{_localstatedir}/cache/%{name}
 
 # Files
-install -m 0755 src/ircd ${buildroot}%{_bindir}/unrealircd
+install -m 0755 src/ircd %{buildroot}%{_bindir}/unrealircd
 
-install -m 0644 doc/conf/*.conf ${buildroot}%{_sysconfdir}/%{name}
-install -m 0644 doc/conf/aliases/*.conf ${buildroot}%{_sysconfdir}/%{name}/aliases
-install -m 0644 doc/conf/help/*.conf ${buildroot}%{_sysconfdir}/%{name}/help
-install -m 0640 doc/conf/examples/*.conf ${buildroot}%{_sysconfdir}/%{name}/examples
-install -m 0640 doc/conf/examples/example.conf ${buildroot}%{_sysconfdir}/%{name}/%{name}.conf
-install -m 0644 doc/conf/ssl/curl-ca-bundle.crt ${buildroot}%{_sysconfdir}/%{name}/ssl
+install -m 0644 doc/conf/*.conf %{buildroot}%{_sysconfdir}/%{name}
+install -m 0644 doc/conf/aliases/*.conf %{buildroot}%{_sysconfdir}/%{name}/aliases
+install -m 0644 doc/conf/help/*.conf %{buildroot}%{_sysconfdir}/%{name}/help
+install -m 0640 doc/conf/examples/*.conf %{buildroot}%{_sysconfdir}/%{name}/examples
+install -m 0640 doc/conf/examples/example.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+install -m 0644 doc/conf/ssl/curl-ca-bundle.crt %{buildroot}%{_sysconfdir}/%{name}/ssl
 
-install -m 0755 src/modules/*.so ${buildroot}%{_libdir}/%{name}
-install -m 0755 src/modules/usermodes/*.so ${buildroot}%{_libdir}/%{name}/usermodes
-install -m 0755 src/modules/chanmodes/*.so ${buildroot}%{_libdir}/%{name}/chanmodes
-install -m 0755 src/modules/snomasks/*.so ${buildroot}%{_libdir}/%{name}/snomasks
-install -m 0755 src/modules/extbans/*.so ${buildroot}%{_libdir}/%{name}/extbans
+install -m 0755 src/modules/*.so %{buildroot}%{_libdir}/%{name}
+install -m 0755 src/modules/usermodes/*.so %{buildroot}%{_libdir}/%{name}/usermodes
+install -m 0755 src/modules/chanmodes/*.so %{buildroot}%{_libdir}/%{name}/chanmodes
+install -m 0755 src/modules/snomasks/*.so %{buildroot}%{_libdir}/%{name}/snomasks
+install -m 0755 src/modules/extbans/*.so %{buildroot}%{_libdir}/%{name}/extbans
 
 # Package specific
-install -d -m 0755 ${buildroot}%{_sysconfdir}/logrotate.d 
-install -m 0644 %{SOURCE4} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
+install -d -m 0755 %{buildroot}%{_sysconfdir}/logrotate.d 
+install -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/logrotate.d/unrealircd
 
-install -d -m 0755 ${buildroot}%{_unitdir}
-install -m 0644 %{SOURCE3} ${buildroot}%{_unitdir}/unrealircd.service
+install -d -m 0755 %{buildroot}%{_unitdir}
+install -m 0644 %{SOURCE3} %{buildroot}%{_unitdir}/unrealircd.service
 
 # Development headers
-install -d -m 0755 ${buildroot}%{_includedir}/%{name}
-install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
+install -d -m 0755 %{buildroot}%{_includedir}/%{name}
+install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 
 %pre
 %{_sbindir}/groupadd -r unrealircd 2>/dev/null || :
