@@ -15,8 +15,8 @@ URL:		https://www.unrealircd.com
 Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
 Source1:    https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz.asc
 Source2:    https://www.unrealircd.org/downloads/release_key.gpg
-Source8:	%{name}.service
-Source11:	%{name}.logrotate
+Source3:	%{name}.service
+Source4:	%{name}.logrotate
 
 BuildRequires: coreutils
 BuildRequires: gzip
@@ -132,10 +132,10 @@ install -m 0755 src/modules/snomasks/*.so ${buildroot}%{_libdir}/%{name}/snomask
 install -m 0755 src/modules/extbans/*.so ${buildroot}%{_libdir}/%{name}/extbans
 
 install -d -m 0755 ${buildroot}%{_sysconfdir}/logrotate.d 
-install -m 0644 %{SOURCE11} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
+install -m 0644 %{SOURCE4} ${buildroot}%{_sysconfdir}/logrotate.d/unrealircd
 
 install -d -m 0755 ${buildroot}%{_unitdir}
-install -m 0644 %{SOURCE8} ${buildroot}%{_unitdir}/unrealircd.service
+install -m 0644 %{SOURCE3} ${buildroot}%{_unitdir}/unrealircd.service
 
 install -d -m 0755 ${buildroot}%{_includedir}/%{name}
 install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
