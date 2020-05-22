@@ -13,6 +13,8 @@ Group:		Applications/Communications
 License:	GPLv2
 URL:		https://www.unrealircd.com
 Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
+Source1:    https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz.asc
+Source2:    https://www.unrealircd.org/downloads/release_key.gpg
 Source8:	%{name}.service
 Source11:	%{name}.logrotate
 
@@ -63,6 +65,7 @@ module will be using pcre2, tre, zlib, or c-ares, you will need
 to install the -devel packages of those as well.
 
 %prep
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
 %setup -q
 
 %build
