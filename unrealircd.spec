@@ -91,111 +91,60 @@ make %{?_smp_mflags}
 %install
 rm -rf ${RPM_BUILD_ROOT}
 
-# Unfortunately, the unrealircd folks have a broken make install.
-# They even have a commit from 2001 where they put in:
-# + @echo "Now install by hand; make install is broken."
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_bindir}
 
-# And...
-# "Their fix was to make it broken." -remyabel
+%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
+%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
+%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
+%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
+%{__install} -d -m 0750 ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
 
-# Directories
-## /etc/unrealircd, /usr/share/doc/unrealircd, /usr/bin
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_bindir}
-%{__install} -d -m 0750 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-%{__install} -d -m 0750 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
-%{__install} -d -m 0750 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
-%{__install} -d -m 0750 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
-%{__install} -d -m 0750 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_docdir}/%{name}-%{version}
-## /usr/lib64/unrealircd
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/third
-# /usr/libexec/unrealircd
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_libexecdir}/%{name}
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_docdir}/%{name}-%{version}
 
-## /var
-%{__install} -d -m 0700 \
-	${RPM_BUILD_ROOT}%{_sharedstatedir}/%{name}
-%{__install} -d -m 0700 \
-	${RPM_BUILD_ROOT}%{_localstatedir}/log/%{name}
-%{__install} -d -m 0700 \
-	${RPM_BUILD_ROOT}%{_localstatedir}/cache/%{name}
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libdir}/%{name}/third
 
-# Files
-%{__install} -m 0755 src/ircd \
-	${RPM_BUILD_ROOT}%{_bindir}/unrealircd
-%{__install} -m 0644 doc/conf/*.conf \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-%{__install} -m 0644 doc/conf/aliases/*.conf \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
-%{__install} -m 0644 doc/conf/help/*.conf \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
-%{__install} -m 0600 doc/conf/examples/*.conf \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
-%{__install} -m 0644 doc/conf/ssl/curl-ca-bundle.crt \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_libexecdir}/%{name}
 
-%{__install} -m 0755 src/modules/*.so \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}
-%{__install} -m 0755 src/modules/usermodes/*.so \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
-%{__install} -m 0755 src/modules/chanmodes/*.so \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
-%{__install} -m 0755 src/modules/snomasks/*.so \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
-%{__install} -m 0755 src/modules/extbans/*.so \
-	${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
+%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_sharedstatedir}/%{name}
+%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_localstatedir}/log/%{name}
+%{__install} -d -m 0700 ${RPM_BUILD_ROOT}%{_localstatedir}/cache/%{name}
 
-# Extras
-%{__install} -m 0644 %{SOURCE1} \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.motd
-%{__install} -m 0644 %{SOURCE2} \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.rules
-%{__install} -m 0644 %{SOURCE3} \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/oper.motd
-%{__install} -m 0644 %{SOURCE4} \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/bot.motd
-%{__install} -m 0770 %{SOURCE5} \
-	${RPM_BUILD_ROOT}%{_libexecdir}/%{name}/ircdutil
-%{__install} -m 0600 %{SOURCE9} \
-	${RPM_BUILD_ROOT}%{_sharedstatedir}/unrealircd/ircd.tune
-%{__install} -d -m 0755 \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d 
-%{__install} -m 0644 %{SOURCE11} \
-	${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/unrealircd
+%{__install} -m 0755 src/ircd ${RPM_BUILD_ROOT}%{_bindir}/unrealircd
 
-# OS Specific
+%{__install} -m 0644 doc/conf/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
+%{__install} -m 0644 doc/conf/aliases/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/aliases
+%{__install} -m 0644 doc/conf/help/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/help
+%{__install} -m 0600 doc/conf/examples/*.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/examples
+%{__install} -m 0644 doc/conf/ssl/curl-ca-bundle.crt ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ssl
+
+%{__install} -m 0755 src/modules/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}
+%{__install} -m 0755 src/modules/usermodes/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/usermodes
+%{__install} -m 0755 src/modules/chanmodes/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/chanmodes
+%{__install} -m 0755 src/modules/snomasks/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/snomasks
+%{__install} -m 0755 src/modules/extbans/*.so ${RPM_BUILD_ROOT}%{_libdir}/%{name}/extbans
+
+%{__install} -m 0644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.motd
+%{__install} -m 0644 %{SOURCE2} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.rules
+%{__install} -m 0644 %{SOURCE3} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/oper.motd
+%{__install} -m 0644 %{SOURCE4} ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/bot.motd
+%{__install} -m 0770 %{SOURCE5} ${RPM_BUILD_ROOT}%{_libexecdir}/%{name}/ircdutil
+%{__install} -m 0600 %{SOURCE9} ${RPM_BUILD_ROOT}%{_sharedstatedir}/unrealircd/ircd.tune
+
+%{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d 
+%{__install} -m 0644 %{SOURCE11} ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/unrealircd
+
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_unitdir}
-%{__install} -m 0644 %{SOURCE8} \
-	${RPM_BUILD_ROOT}%{_unitdir}/unrealircd.service
+%{__install} -m 0644 %{SOURCE8} ${RPM_BUILD_ROOT}%{_unitdir}/unrealircd.service
 
-# development headers
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_includedir}/%{name}
-%{__install} -m 0755 include/*.h \
-	${RPM_BUILD_ROOT}%{_includedir}/%{name}
+%{__install} -m 0755 include/*.h ${RPM_BUILD_ROOT}%{_includedir}/%{name}
 
 %pre
-# Since we are not an official Fedora build, we don't get an
-# assigned uid/gid. This may make it difficult when installed
-# on multiple systems.
 %{_sbindir}/groupadd -r unrealircd 2>/dev/null || :
 %{_sbindir}/useradd -r -g unrealircd \
 	-s /sbin/nologin -d %{_sysconfdir}/unrealircd \
@@ -214,6 +163,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(-, unrealircd, unrealircd, -)
 %doc doc/Authors doc/coding-guidelines doc/tao.of.irc README
 %attr(-,root,root) %{_bindir}/unrealircd
+
 %attr(-,root,root) %{_sysconfdir}/logrotate.d/unrealircd
 %dir %{_sysconfdir}/%{name}
 %dir %{_sysconfdir}/%{name}/help
