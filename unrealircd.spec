@@ -1,8 +1,8 @@
 ## Define global settings
 %global _hardened_build 1
-%global major_version 4
+%global major_version 5
 %global minor_version 0
-%global micro_version 2
+%global micro_version 4
 
 Name:		unrealircd
 Version:	%{major_version}.%{minor_version}.%{micro_version}
