@@ -96,11 +96,11 @@ rm -rf ${buildroot}
 
 install -d -m 0755 ${buildroot}%{_bindir}
 
-install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}
-install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/aliases
-install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/help
-install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/examples
-install -d -m 0750 ${buildroot}%{_sysconfdir}/%{name}/ssl
+install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}
+install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/aliases
+install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/help
+install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/examples
+install -d -m 0755 ${buildroot}%{_sysconfdir}/%{name}/ssl
 
 install -d -m 0755 ${buildroot}%{_docdir}/%{name}-%{version}
 
