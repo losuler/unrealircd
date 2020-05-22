@@ -206,6 +206,13 @@ install -m 0755 include/*.h ${buildroot}%{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 
 %changelog
+* Fri May 22 2020 losuler <losuler@posteo.net> - 5.0.4-1
+- Update to 5.0.4
+- Remove various plugins
+- Remove init wrapper script
+- Add default config file
+- Add source file verification
+
 * Sun Apr 3 2016 Louis Abel <louis@shootthej.net> - 4.0.2-2
 - Added -devel package for headers
 - Added various plugins
