@@ -105,7 +105,7 @@ install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/aliases
 install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/help
 install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/examples
-install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/ssl
+install -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}/tls
 
 install -d -m 0755 %{buildroot}%{_docdir}/%{name}-%{version}
 
@@ -130,7 +130,7 @@ install -m 0644 doc/conf/aliases/*.conf %{buildroot}%{_sysconfdir}/%{name}/alias
 install -m 0644 doc/conf/help/*.conf %{buildroot}%{_sysconfdir}/%{name}/help
 install -m 0640 doc/conf/examples/*.conf %{buildroot}%{_sysconfdir}/%{name}/examples
 install -m 0640 doc/conf/examples/example.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
-install -m 0644 doc/conf/ssl/curl-ca-bundle.crt %{buildroot}%{_sysconfdir}/%{name}/ssl
+install -m 0644 doc/conf/tls/curl-ca-bundle.crt %{buildroot}%{_sysconfdir}/%{name}/tls
 
 install -m 0755 src/modules/*.so %{buildroot}%{_libdir}/%{name}
 install -m 0755 src/modules/usermodes/*.so %{buildroot}%{_libdir}/%{name}/usermodes
@@ -173,13 +173,13 @@ install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 %dir %{_sysconfdir}/%{name}
 %dir %{_sysconfdir}/%{name}/help
 %dir %{_sysconfdir}/%{name}/examples
-%dir %{_sysconfdir}/%{name}/ssl
+%dir %{_sysconfdir}/%{name}/tls
 %dir %{_sysconfdir}/%{name}/aliases
 %config(noreplace) %{_sysconfdir}/%{name}/*.conf
 %config(noreplace) %{_sysconfdir}/%{name}/help/*.conf
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %{_sysconfdir}/%{name}/examples/*.conf
-%{_sysconfdir}/%{name}/ssl/curl-ca-bundle.crt
+%{_sysconfdir}/%{name}/tls/curl-ca-bundle.crt
 %config(noreplace) %{_sysconfdir}/%{name}/aliases/*.conf
 
 %dir %{_libdir}/%{name}
