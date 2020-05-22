@@ -1,4 +1,3 @@
-## Define global settings
 %global _hardened_build 1
 %global major_version 5
 %global minor_version 0
