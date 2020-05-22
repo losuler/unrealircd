@@ -32,7 +32,6 @@ BuildRequires: c-ares-devel
 
 # Argon2 is only in EPEL
 BuildRequires: epel-release
-BuildRequires: argon2
 BuildRequires: libargon2-devel
 
 # Source file verification
