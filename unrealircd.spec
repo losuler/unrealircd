@@ -123,6 +123,7 @@ install -m 0644 doc/conf/*.conf ${buildroot}%{_sysconfdir}/%{name}
 install -m 0644 doc/conf/aliases/*.conf ${buildroot}%{_sysconfdir}/%{name}/aliases
 install -m 0644 doc/conf/help/*.conf ${buildroot}%{_sysconfdir}/%{name}/help
 install -m 0600 doc/conf/examples/*.conf ${buildroot}%{_sysconfdir}/%{name}/examples
+install -m 0640 doc/conf/examples/example.conf ${buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 install -m 0644 doc/conf/ssl/curl-ca-bundle.crt ${buildroot}%{_sysconfdir}/%{name}/ssl
 
 install -m 0755 src/modules/*.so ${buildroot}%{_libdir}/%{name}
