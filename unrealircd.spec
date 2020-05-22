@@ -6,7 +6,7 @@
 
 Name:		unrealircd
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	2%{?dist}
+Release:	1%{?dist}
 Summary:	UnrealIRC Daemon
 
 Group:		Applications/Communications
