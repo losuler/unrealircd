@@ -11,7 +11,7 @@ Summary:	An open source IRC server
 Group:		Applications/Communications
 License:	GPLv2
 URL:		https://www.unrealircd.com
-Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
+Source0:	https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz
 Source1:    https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz.asc
 Source2:    https://www.unrealircd.org/downloads/release_key.gpg
 Source3:	%{name}.service
