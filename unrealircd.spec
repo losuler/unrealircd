@@ -7,7 +7,7 @@
 Name:		unrealircd
 Version:	%{major_version}.%{minor_version}.%{micro_version}
 Release:	1%{?dist}
-Summary:	UnrealIRC Daemon
+Summary:	An open source IRC server
 
 Group:		Applications/Communications
 License:	GPLv2
@@ -49,8 +49,10 @@ Requires(postun): systemd
 Requires:         systemd
 
 %description
-UnrealIRCd is an advanced IRC server that provides features for just
-about everything.
+UnrealIRCd is a highly advanced IRCd with a strong focus on modularity,
+an advanced and highly configurable configuration file. Key features include
+SSL, cloaking, its advanced anti-flood and anti-spam systems, swear filtering
+and module support.
 
 %package devel
 Group:		Development/Libraries
