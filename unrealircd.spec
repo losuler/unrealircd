@@ -35,6 +35,8 @@ BuildRequires: c-ares-devel
 BuildRequires: epel-release
 BuildRequires: libargon2-devel
 
+BuildRequires: gnupg2
+
 Requires: openssl
 Requires: pcre2
 Requires: c-ares
