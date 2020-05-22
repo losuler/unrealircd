@@ -3,19 +3,19 @@
 %global minor_version 0
 %global micro_version 4
 
-Name:		unrealircd
-Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	1%{?dist}
-Summary:	An open source IRC server
+Name:    unrealircd
+Version: %{major_version}.%{minor_version}.%{micro_version}
+Release: 1%{?dist}
+Summary: An open source IRC server
 
-Group:		Applications/Communications
-License:	GPLv2
-URL:		https://www.unrealircd.com
-Source0:	https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz
-Source1:    https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz.asc
-Source2:    https://www.unrealircd.org/downloads/release_key.gpg
-Source3:	%{name}.service
-Source4:	%{name}.logrotate
+Group:   Applications/Communications
+License: GPLv2
+URL:     https://www.unrealircd.com
+Source0: https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz
+Source1: https://www.unrealircd.org/downloads/%{name}-%{version}.tar.gz.asc
+Source2: https://www.unrealircd.org/downloads/release_key.gpg
+Source3: %{name}.service
+Source4: %{name}.logrotate
 
 BuildRequires: coreutils
 BuildRequires: gzip
@@ -57,9 +57,9 @@ SSL, cloaking, its advanced anti-flood and anti-spam systems, swear filtering
 and module support.
 
 %package devel
-Group:		Development/Libraries
-Summary:	Development headers for %{name}
-Requires:	unrealircd = %{version}-%{release}
+Group:    Development/Libraries
+Summary:  Development headers for %{name}
+Requires: unrealircd = %{version}-%{release}
 
 %description devel
 The unrealircd-devel package contains the headers as part of the
@@ -74,24 +74,24 @@ to install the -devel packages of those as well.
 
 %build
 %configure \
-	--with-bindir=%{_bindir} \
-	--with-datadir=%{_sharedstatedir}/%{name} \
-	--with-confdir=%{_sysconfdir}/%{name} \
-	--with-modulesdir=%{_libdir}/%{name} \
-	--with-logdir=%{_localstatedir}/log/%{name} \
-	--with-cachedir=%{_localstatedir}/cache/%{name} \
-	--with-docdir=%{_docdir}/%{name}-%{version} \
-	--with-tmpdir=%{_tmppath}/%{name} \
-	--with-scriptdir=%{_libexecdir}/%{name} \
-	--with-nick-history=2000 \
-	--with-permissions=0644 \
-	--with-system-pcre2 \
-	--with-system-argon2 \
-	--with-system-cares \
-	--without-pidfile \
-	--without-privatelibdir \
-	--enable-dynamic-linking \
-	--enable-ssl=%{_prefix}
+    --with-bindir=%{_bindir} \
+    --with-datadir=%{_sharedstatedir}/%{name} \
+    --with-confdir=%{_sysconfdir}/%{name} \
+    --with-modulesdir=%{_libdir}/%{name} \
+    --with-logdir=%{_localstatedir}/log/%{name} \
+    --with-cachedir=%{_localstatedir}/cache/%{name} \
+    --with-docdir=%{_docdir}/%{name}-%{version} \
+    --with-tmpdir=%{_tmppath}/%{name} \
+    --with-scriptdir=%{_libexecdir}/%{name} \
+    --with-nick-history=2000 \
+    --with-permissions=0644 \
+    --with-system-pcre2 \
+    --with-system-argon2 \
+    --with-system-cares \
+    --without-pidfile \
+    --without-privatelibdir \
+    --enable-dynamic-linking \
+    --enable-ssl=%{_prefix}
 
 make %{?_smp_mflags}
 
@@ -152,8 +152,8 @@ install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 %pre
 %{_sbindir}/groupadd -r unrealircd 2>/dev/null || :
 %{_sbindir}/useradd -r -g unrealircd \
-	-s /sbin/nologin -d %{_sysconfdir}/unrealircd \
-	-c 'Unreal IRC Server' unrealircd 2>/dev/null || :
+    -s /sbin/nologin -d %{_sysconfdir}/unrealircd \
+    -c 'Unreal IRC Server' unrealircd 2>/dev/null || :
 
 %preun
 %systemd_preun %{name}.service
