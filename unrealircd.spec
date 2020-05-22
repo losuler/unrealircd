@@ -11,7 +11,7 @@ Summary:	UnrealIRC Daemon
 
 Group:		Applications/Communications
 License:	GPLv2
-URL:		http://www.unrealircd.com/
+URL:		https://www.unrealircd.com
 Source0:	https://www.unrealircd.org/unrealircd4/%{name}-%{version}.tar.gz
 Source8:	%{name}.service
 Source11:	%{name}.logrotate
