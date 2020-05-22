@@ -166,7 +166,7 @@ install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 
 %files
 %defattr(-, unrealircd, unrealircd, -)
-%doc doc/Authors doc/coding-guidelines doc/tao.of.irc README
+%doc doc/Authors doc/coding-guidelines doc/tao.of.irc
 %attr(-,root,root) %{_bindir}/unrealircd
 
 %attr(-,root,root) %{_sysconfdir}/logrotate.d/unrealircd
