@@ -125,7 +125,8 @@ install -d -m 0700 %{buildroot}%{_localstatedir}/cache/%{name}
 # Files
 install -m 0755 src/ircd %{buildroot}%{_bindir}/unrealircd
 
-install -m 0644 doc/conf/*.conf %{buildroot}%{_sysconfdir}/%{name}
+install -m 0644 doc/conf/*.default.conf %{buildroot}%{_sysconfdir}/%{name}
+install -m 0644 doc/conf/*.optional.conf %{buildroot}%{_sysconfdir}/%{name}
 install -m 0644 doc/conf/aliases/*.conf %{buildroot}%{_sysconfdir}/%{name}/aliases
 install -m 0644 doc/conf/help/*.conf %{buildroot}%{_sysconfdir}/%{name}/help
 install -m 0640 doc/conf/examples/*.conf %{buildroot}%{_sysconfdir}/%{name}/examples
@@ -175,7 +176,8 @@ install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 %dir %{_sysconfdir}/%{name}/examples
 %dir %{_sysconfdir}/%{name}/tls
 %dir %{_sysconfdir}/%{name}/aliases
-%config(noreplace) %{_sysconfdir}/%{name}/*.conf
+%config(noreplace) %{_sysconfdir}/%{name}/*.default.conf
+%config(noreplace) %{_sysconfdir}/%{name}/*.optional.conf
 %config(noreplace) %{_sysconfdir}/%{name}/help/*.conf
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %{_sysconfdir}/%{name}/examples/*.conf
