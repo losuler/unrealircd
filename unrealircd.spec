@@ -207,7 +207,7 @@ install -m 0755 include/*.h %{buildroot}%{_includedir}/%{name}
 
 %changelog
 * Fri May 22 2020 losuler <losuler@posteo.net> - 5.0.4-1
-- Update to 5.0.4
+- Update to UnrealIRCd 5.0.4
 - Remove various plugins
 - Remove init wrapper script
 - Add default config file
