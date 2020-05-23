@@ -264,6 +264,7 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 - Remove init wrapper script
 - Add default config file
 - Add source file verification
+- Add test build macro
 
 * Sun Apr 3 2016 Louis Abel <louis@shootthej.net> - 4.0.2-2
 - Added -devel package for headers
