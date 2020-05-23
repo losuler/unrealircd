@@ -2,6 +2,7 @@
 %global major_version 5
 %global minor_version 0
 %global micro_version 4
+%global test_build 0
 
 Name:    unrealircd
 Version: %{major_version}.%{minor_version}.%{micro_version}
@@ -164,9 +165,38 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 %systemd_preun %{name}.service
 
 %post
+%if "%{test_build}" == "1"
+%{_bindir}/openssl ecparam -out %{_sysconfdir}/%{name}/tls/server.key.pem \
+    -name secp384r1 -genkey
+
+%{_bindir}/openssl req -new -sha256 \
+    -out %{_sysconfdir}/%{name}/tls/server.req.pem \
+    -subj "/C=US/ST=New York/O=IRC geeks/OU=IRCd/CN=localhost" \
+    -key %{_sysconfdir}/%{name}/tls/server.key.pem -nodes
+
+%{_bindir}/openssl req -x509 -days 3650 -sha256 \
+    -in %{_sysconfdir}/%{name}/tls/server.req.pem \
+    -key %{_sysconfdir}/%{name}/tls/server.key.pem \
+    -out %{_sysconfdir}/%{name}/tls/server.cert.pem
+
+%{_bindir}/chmod 0700 %{_sysconfdir}/%{name}/tls/server.key.pem \
+    %{_sysconfdir}/%{name}/tls/server.req.pem \
+    %{_sysconfdir}/%{name}/tls/server.cert.pem
+
+%{_bindir}/chown unrealircd:unrealircd %{_sysconfdir}/%{name}/tls/server.key.pem \
+    %{_sysconfdir}/%{name}/tls/server.req.pem \
+    %{_sysconfdir}/%{name}/tls/server.cert.pem
+%endif
+
 %systemd_post %{name}.service
 
 %postun
+%if "%{test_build}" == "1"
+%{_bindir}/rm %{_sysconfdir}/%{name}/tls/server.key.pem \
+    %{_sysconfdir}/%{name}/tls/server.req.pem \
+    %{_sysconfdir}/%{name}/tls/server.cert.pem
+%endif
+
 %systemd_postun_with_restart %{name}.service
 
 %files
