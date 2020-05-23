@@ -277,4 +277,3 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 - Enterprise Linux 6: Most functions moved to initscript
 - util script created to compensate for lack of initscript in
 - Enterprise Linux 7
-
