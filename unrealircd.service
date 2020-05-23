@@ -1,5 +1,5 @@
 [Unit]
-Description=Unreal IRC daemon
+Description=UnrealIRCd
 After=network.target remote-fs.target nss-lookup.target
 
 [Service]
