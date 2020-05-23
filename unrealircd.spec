@@ -187,16 +187,16 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
     %{_sysconfdir}/%{name}/tls/server.req.pem \
     %{_sysconfdir}/%{name}/tls/server.cert.pem
 
-%{_bindir}sed -i 's/password "test";/password "bobsmith";/g' \
+%{_bindir}/sed -i 's/password "test";/password "bobsmith";/g' \
     %{_sysconfdir}/%{name}/%{name}.conf
 
-%{_bindir}sed -i 's/set.this.to.email.address/example@example.com/' \
+%{_bindir}/sed -i 's/set.this.to.email.address/example@example.com/' \
     %{_sysconfdir}/%{name}/%{name}.conf
 
-%{_bindir}sed -i '0,/and another one/s//boAr1HnR6gl3sJ7hVz4Zb7x4YwpW/' \
+%{_bindir}/sed -i '0,/and another one/s//boAr1HnR6gl3sJ7hVz4Zb7x4YwpW/' \
     %{_sysconfdir}/%{name}/%{name}.conf
 
-%{_bindir}sed -i '0,/and another one/s//coAr1HnR6gl3sJ7hVz4Zb7x4YwpW/' \
+%{_bindir}/sed -i '0,/and another one/s//coAr1HnR6gl3sJ7hVz4Zb7x4YwpW/' \
     %{_sysconfdir}/%{name}/%{name}.conf
 %endif
 
