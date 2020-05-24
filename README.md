@@ -22,3 +22,16 @@ This repo can be added on all supported systems by:
 ```bash
 dnf copr enable losuler/unrealircd 
 ```
+
+## Config
+
+In order to change the default location for tls certs (which is`/etc/unrealircd/tls`), when for example you are using `certbot`, use the following block in `/etc/unrealircd/unrealircd.conf`:
+
+```
+set {
+    tls {
+        certificate "/path/to/cert";
+        key "/path/to/key";
+    };
+};
+```
