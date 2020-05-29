@@ -255,6 +255,10 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 
 %changelog
+* Fri May 29 2020 losuler <losuler@posteo.net> - 5.0.5.1-1
+- Update to UnrealIRCd 5.0.5.1
+- Fix for simpler version macro
+
 * Fri May 22 2020 losuler <losuler@posteo.net> - 5.0.4-1
 - Update to UnrealIRCd 5.0.4
 - Remove various plugins
