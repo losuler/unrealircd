@@ -1,11 +1,8 @@
 %global _hardened_build 1
-%global major_version 5
-%global minor_version 0
-%global micro_version 4
 %global test_build 0
 
 Name:    unrealircd
-Version: %{major_version}.%{minor_version}.%{micro_version}
+Version: 5.0.4
 Release: 1%{?dist}
 Summary: An open source IRC server
 
