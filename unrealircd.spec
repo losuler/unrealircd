@@ -257,6 +257,7 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 %changelog
 * Fri Jul 17 2020 losuler <losuler@posteo.net> - 5.0.6-1
 - Update to UnrealIRCd 5.0.6
+- Fix pkgconf-pkg-config is pkgconfig on epel7
 
 * Fri May 29 2020 losuler <losuler@posteo.net> - 5.0.5.1-1
 - Update to UnrealIRCd 5.0.5.1
