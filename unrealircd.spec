@@ -17,7 +17,7 @@ Source4: %{name}.logrotate
 
 BuildRequires: coreutils
 BuildRequires: gzip
-BuildRequires: pkgconf-pkg-config
+BuildRequires: pkgconfig
 BuildRequires: gcc
 BuildRequires: make
 BuildRequires: curl
