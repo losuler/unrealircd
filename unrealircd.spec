@@ -27,14 +27,10 @@ BuildRequires: pcre2
 BuildRequires: pcre2-devel
 BuildRequires: c-ares
 BuildRequires: c-ares-devel
-
-# Argon2 is only in EPEL
-BuildRequires: epel-release
 BuildRequires: libargon2-devel
 
 # Source file verification
 BuildRequires: gnupg2
-BuildRequires: epel-rpm-macros
 
 Requires: openssl
 Requires: pcre2
