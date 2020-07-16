@@ -2,7 +2,7 @@
 %global test_build 0
 
 Name:    unrealircd
-Version: 5.0.5.1
+Version: 5.0.6
 Release: 1%{?dist}
 Summary: An open source IRC server
 
@@ -255,6 +255,9 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 
 %changelog
+* Fri Jul 17 2020 losuler <losuler@posteo.net> - 5.0.6-1
+- Update to UnrealIRCd 5.0.6
+
 * Fri May 29 2020 losuler <losuler@posteo.net> - 5.0.5.1-1
 - Update to UnrealIRCd 5.0.5.1
 - Fix for simpler version macro
