@@ -2,7 +2,7 @@
 %global test_build 0
 
 Name:    unrealircd
-Version: 5.0.6
+Version: 5.0.7
 Release: 1%{?dist}
 Summary: An open source IRC server
 
@@ -255,6 +255,10 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 
 %changelog
+* Sun Oct 11 2020 losuler <losuler@posteo.net> - 5.0.7-1
+- Update to UnrealIRCd 5.0.7
+- Fix undesired restart
+
 * Fri Jul 17 2020 losuler <losuler@posteo.net> - 5.0.6-1
 - Update to UnrealIRCd 5.0.6
 - Fix pkgconf-pkg-config is pkgconfig on epel7
