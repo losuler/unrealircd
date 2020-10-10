@@ -206,7 +206,7 @@ install -m 0655 include/*.h %{buildroot}%{_includedir}/%{name}
     %{_sysconfdir}/%{name}/tls/server.cert.pem
 %endif
 
-%systemd_postun_with_restart %{name}.service
+%systemd_postun %{name}.service
 
 %files
 %defattr(-, unrealircd, unrealircd, -)
