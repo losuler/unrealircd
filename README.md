@@ -13,6 +13,8 @@
 
 This is an RPM spec for [UnrealIRCd](https://www.unrealircd.org/) based on the original spec created by [nazunalika](https://github.com/nazunalika).
 
+> **Update**: This package is now available in the official Fedora and EPEL repositories https://src.fedoraproject.org/rpms/unrealircd. It is recommended to migrate to this package. The spec and associated builds provided here will no longer be maintained.
+
 ## Builds
 
 Builds are available on my Copr at https://copr.fedorainfracloud.org/coprs/losuler/unrealircd.
