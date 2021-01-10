@@ -3,7 +3,7 @@
   <p align="center">
     <h3 align="center">UnrealIRCd RPM</h3>
     <p align="center">
-      An RPM spec for UnrealIRCd.
+      Fedora/CentOS packaging for UnrealIRCd.
     </p>
   </p>
 </p>
@@ -11,7 +11,7 @@
 
 ## About
 
-This is an RPM spec for [UnrealIRCd](https://www.unrealircd.org/) based on the original spec created by [nazunalika](https://github.com/nazunalika).
+This is Fedora/CentOS packaging for [UnrealIRCd](https://www.unrealircd.org/) based on the original spec created by [nazunalika](https://github.com/nazunalika).
 
 > **Update**: This package is now available in the official Fedora and EPEL repositories https://src.fedoraproject.org/rpms/unrealircd. It is recommended to migrate to this package. The spec and associated builds provided here will no longer be maintained.
 
